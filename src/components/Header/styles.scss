@@ -1,0 +1,172 @@
+@use "../../styles/variables" as *;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+.header {
+  max-width: 1280px; // Conforme layout guide
+  margin: 20px auto 0;
+  background-color: $color-white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+
+  // BARRA SUPERIOR (Info)
+  .top-bar {
+    background-color: $color-white;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 8px 0;
+
+    .top-bar-content {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+
+      .top-bar-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+
+        p {
+          font-size: 12px;
+          color: $color-gray-medium;
+          span {
+            color: $color-blue;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+
+  // BARRA DO MEIO (Logo, Busca, Ações)
+  .middle-bar {
+    padding: 15px 40px;
+    height: 72px; // Conforme o frame do Figma
+
+    .middle-bar-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+
+      .logo {
+        width: 139px;
+        flex-shrink: 0;
+      }
+
+      .search-box {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        background: #f6f6f6;
+        border-radius: 10px;
+        padding: 0 15px;
+        border: 1px solid transparent;
+        transition: border-color 0.2s;
+
+        &:focus-within {
+          border-color: $color-blue;
+        }
+
+        input {
+          flex: 1;
+          height: 48px;
+          border: none;
+          background: transparent;
+          outline: none;
+          font-family: "Poppins", sans-serif;
+          font-size: 14px;
+          color: $color-gray-medium;
+        }
+
+        button {
+          background: none;
+          border: none;
+          cursor: pointer;
+          img {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+
+      .actions-container {
+        display: flex;
+        gap: 30px;
+        button img {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+  }
+
+  // BARRA DE NAVEGAÇÃO (Categorias)
+  .nav-bar {
+    width: 100%;
+    padding: 12px 40px 16px;
+    border-top: 1px solid #f0f0f0;
+
+    .nav-bar-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px; // Pode subir para 91px se quiser seguir o gap exato do Figma
+
+      a {
+        text-decoration: none;
+        color: #9f9f9f; // Cor do seu modelo técnico
+        font-family: "Poppins", sans-serif; // Exato do modelo
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 100%;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: color 0.2s;
+
+        &:hover {
+          color: $color-blue;
+        }
+        &.highlight {
+          color: $color-blue;
+        }
+
+        &.subscription {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          img {
+            width: 18px;
+            height: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// RESPONSIVIDADE
+@media (max-width: 900px) {
+  .header {
+    margin: 0;
+    border-radius: 0;
+    .top-bar .top-bar-content {
+      gap: 15px;
+      .top-bar-item:not(:first-child) {
+        display: none;
+      }
+    }
+    .middle-bar {
+      padding: 15px 20px;
+    }
+    .nav-bar .nav-bar-content {
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+  }
+}

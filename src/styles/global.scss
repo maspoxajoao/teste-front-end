@@ -1,0 +1,33 @@
+@use "./variables" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-main;
+  color: $color-text-body;
+  background-color: $color-white;
+}
+
+// Classe utilitária para centralizar o conteúdo
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px; 
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul {
+  list-style: none;
+}
