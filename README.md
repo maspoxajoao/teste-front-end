@@ -1,73 +1,48 @@
-# React + TypeScript + Vite
+# Teste Econverse - Front-End Jr/Trainee
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto foi desenvolvido como parte do processo seletivo da **Econverse**. A aplicação consiste em uma landing page responsiva, com vitrine de produtos dinâmica e integração com API.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* **React** com **TypeScript**
+* **Vite** (Build tool)
+* **SASS (SCSS)** para estilização
+* **Componentização modular**
 
-## React Compiler
+## 🛠️ Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Vitrine Dinâmica**: Carrossel de produtos consumindo dados de API externa.
+* **Modal de Detalhes**: Visualização de informações específicas ao clicar no botão de compra.
+* **Filtros de Categoria**: Navegação funcional entre categorias de produtos.
+* **Layout Pixel Perfect**: Fidelidade total ao design proposto no Figma.
 
-## Expanding the ESLint configuration
+## 📦 Como rodar o projeto
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Siga os passos abaixo para executar a aplicação em sua máquina local:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1.  **Clonar o repositório**
+    ```bash
+    git clone https://github.com/seu-usuario/nome-do-repositorio.git
+    ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+2.  **Instalar as dependências**
+    ```bash
+    npm install
+    # ou
+    yarn
+    ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3.  **Executar o projeto (Modo de Desenvolvimento)**
+    ```bash
+    npm run dev
+    # ou
+    yarn dev
+    ```
+    A aplicação estará disponível em `http://localhost:5173`.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+4.  **Compilar para Produção (Build)**
+    ```bash
+    npm run build
+    ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
