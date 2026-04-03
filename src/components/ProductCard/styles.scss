@@ -1,0 +1,96 @@
+@use "../../styles/variables" as *;
+
+.product-card {
+  width: 270px;
+  background-color: $color-white;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+
+  box-shadow: 0px 3px 19px rgba(0, 0, 0, 0.22);
+
+  &:hover {
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .product-image {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    margin-bottom: 15px;
+  }
+
+  .product-info {
+    width: 100%;
+    text-align: left;
+
+    .description {
+      font-family: $font-main;
+      font-size: 15px;
+      font-weight: 300;
+      color: #3f3f40;
+      line-height: 22px;
+      height: 44px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .old-price {
+      font-family: $font-main;
+      font-size: 16px;
+      color: #808080;
+      text-decoration: line-through;
+      margin-bottom: 2px;
+    }
+
+    .current-price {
+      font-family: $font-main;
+      font-size: 20px;
+      font-weight: 700;
+      color: #3f3f40;
+      margin-bottom: 5px;
+    }
+
+    .installments {
+      font-family: $font-main;
+      font-size: 12px;
+      color: #3f3f40;
+      margin-bottom: 8px;
+    }
+
+    .shipping {
+      font-family: $font-main;
+      font-size: 12px;
+      font-weight: 700;
+      color: $color-blue;
+      margin-bottom: 15px;
+    }
+
+    .btn-buy {
+      width: 100%;
+      height: 44px;
+      background-color: $color-blue;
+      color: $color-white;
+      border: none;
+      border-radius: 4px;
+      font-family: $font-main;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: background 0.2s;
+
+      &:hover {
+        filter: brightness(1.1);
+      }
+    }
+  }
+}
+
+.products-grid .product-card {
+  flex: 0 0 270px;
+}
