@@ -17,8 +17,8 @@
       font-size: 30px;
       color: $color-blue;
       font-weight: 700;
-      width: 100%;
       margin-bottom: 32px;
+
       &::before,
       &::after {
         content: "";
@@ -32,23 +32,15 @@
     .shelf-filters {
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 40px;
       border: 1px solid #dedede;
-      width: 100%;
+      margin-bottom: 20px;
 
       a {
-        display: flex;
-        align-items: center;
-        height: 100%;
-        padding: 0 40px;
+        padding: 10px 40px;
         text-decoration: none;
         color: #3b3b3b;
-        font-size: 14px;
-        font-weight: 500;
         border-right: 1px solid #dedede;
         text-transform: uppercase;
-
         &.active {
           color: $color-blue;
           font-weight: 700;
@@ -58,117 +50,82 @@
         }
       }
     }
-
-    .view-all {
-      display: block;
-      margin-top: 12px;
-      color: #3b3b3b;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 14px;
-    }
   }
 
   .shelf-content {
     display: flex;
     align-items: center;
     position: relative;
-    padding: 0 10px;
+    padding: 0 40px;
+
+    .products-grid-container {
+      width: 100%;
+      overflow: hidden;
+    }
+
     .products-grid {
       display: flex;
       gap: 20px;
-      overflow: hidden;
+      transition: transform 0.5s ease-in-out;
       width: 100%;
+    }
+
+    .product-item {
+      flex: 0 0 calc(25% - 15px);
+      box-sizing: border-box;
     }
 
     .arrow {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: none;
-      border: none;
+      z-index: 10;
       cursor: pointer;
-      z-index: 2;
+      border: none;
+
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #ffffff;
+
+      color: #3f3f40;
+      font-size: 18px;
+      font-weight: bold;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: #f7c111;
+        color: #ffffff;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      }
 
       &.prev {
-        left: -20px;
+        left: 0;
       }
       &.next {
-        right: -20px;
+        right: 0;
       }
     }
   }
 }
 
 .product-card {
-  flex: 0 0 270px;
+  width: 100%;
   padding: 20px;
-  background: $color-white;
-  box-shadow: 0px 3px 19px rgba(0, 0, 0, 0.1);
+  background: white;
   border-radius: 10px;
-  text-align: left;
-  transition: transform 0.2s;
-
-  &:hover {
-    transform: translateY(-5px);
-  }
+  box-shadow: 0px 3px 19px rgba(0, 0, 0, 0.1);
 
   .product-image {
     width: 100%;
     height: 220px;
     object-fit: contain;
-    margin-bottom: 15px;
-  }
-
-  .description {
-    font-size: 15px;
-    color: #3f3f40;
-    line-height: 1.4;
-    height: 42px;
-    overflow: hidden;
-    margin-bottom: 12px;
-  }
-
-  .old-price {
-    text-decoration: line-through;
-    color: #9f9f9f;
-    font-size: 14px;
-    margin-bottom: 2px;
-  }
-
-  .current-price {
-    font-size: 20px;
-    font-weight: 700;
-    color: #3f3f40;
-    margin-bottom: 4px;
-  }
-
-  .installments {
-    font-size: 12px;
-    color: #3f3f40;
-  }
-
-  .shipping {
-    color: $color-blue;
-    font-size: 12px;
-    font-weight: 400;
-    margin: 8px 0 15px 0;
-  }
-
-  .btn-buy {
-    width: 100%;
-    height: 44px;
-    background: $color-blue;
-    color: $color-white;
-    border: none;
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 14px;
-    text-transform: uppercase;
-    cursor: pointer;
-
-    &:hover {
-      filter: brightness(1.1);
-    }
   }
 }

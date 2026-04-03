@@ -20,6 +20,10 @@ export function ProductShelf({ title, showFilter = false }: ShelfProps) {
   const [loading, setLoading] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
+  // Lógica de estado do carrossel
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const itemsPerPage = 4;
+
   useEffect(() => {
     fetch(
       "/api-econverse/teste-front-end/junior/tecnologia/lista-produtos/produtos.json",
@@ -31,6 +35,16 @@ export function ProductShelf({ title, showFilter = false }: ShelfProps) {
       })
       .catch(() => setLoading(false));
   }, []);
+
+  const handleNext = () => {
+    const maxIndex = Math.max(0, products.length - itemsPerPage);
+    setCurrentIndex((prev) => (prev < maxIndex ? prev + 1 : 0));
+  };
+
+  const handlePrev = () => {
+    const maxIndex = Math.max(0, products.length - itemsPerPage);
+    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : maxIndex));
+  };
 
   if (loading) return <p>Carregando produtos...</p>;
 
@@ -53,19 +67,36 @@ export function ProductShelf({ title, showFilter = false }: ShelfProps) {
       </div>
 
       <div className="shelf-content">
-        <div className="products-grid">
-          {products.map((product, index) => (
-            <ProductCard
-              key={index}
-              name={product.productName}
-              description={product.descriptionShort}
-              price={product.price}
-              oldPrice={product.price * 1.1}
-              image={product.photo}
-              onBuy={() => setSelectedProduct(product)}
-            />
-          ))}
+        <button className="arrow prev" onClick={handlePrev}>
+          ❮
+        </button>
+
+        <div className="products-grid-container">
+          <div
+            className="products-grid"
+            style={{
+              transform: `translateX(-${currentIndex * (100 / itemsPerPage)}%)`,
+            }}
+          >
+            {products.map((product, index) => (
+              /* IMPORTANTE: O ProductCard deve estar dentro de uma div que controla o tamanho */
+              <div className="product-item" key={index}>
+                <ProductCard
+                  name={product.productName}
+                  description={product.descriptionShort}
+                  price={product.price}
+                  oldPrice={product.price * 1.1}
+                  image={product.photo}
+                  onBuy={() => setSelectedProduct(product)}
+                />
+              </div>
+            ))}
+          </div>
         </div>
+
+        <button className="arrow next" onClick={handleNext}>
+          ❯
+        </button>
       </div>
 
       {selectedProduct && (
