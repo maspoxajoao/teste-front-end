@@ -19,8 +19,6 @@ export function ProductShelf({ title, showFilter = false }: ShelfProps) {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-
-  // Lógica de estado do carrossel
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = 4;
 
@@ -79,7 +77,6 @@ export function ProductShelf({ title, showFilter = false }: ShelfProps) {
             }}
           >
             {products.map((product, index) => (
-              /* IMPORTANTE: O ProductCard deve estar dentro de uma div que controla o tamanho */
               <div className="product-item" key={index}>
                 <ProductCard
                   name={product.productName}
