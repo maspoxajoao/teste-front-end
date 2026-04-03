@@ -51,6 +51,20 @@
         }
       }
     }
+
+    .view-all {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 15px;
+      color: #3f3f40;
+      text-decoration: none;
+      margin-top: -15px;
+
+      &:hover {
+        text-decoration: none;
+        color: $color-blue;
+      }
+    }
   }
 
   .shelf-content {

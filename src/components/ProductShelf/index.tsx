@@ -50,7 +50,7 @@ export function ProductShelf({ title, showFilter = false }: ShelfProps) {
     <section className="product-shelf">
       <div className="shelf-header">
         <h2>{title}</h2>
-        {showFilter && (
+        {showFilter ? (
           <nav className="shelf-filters">
             <a href="#" className="active">
               Celular
@@ -61,6 +61,10 @@ export function ProductShelf({ title, showFilter = false }: ShelfProps) {
             <a href="#">TVs</a>
             <a href="#">Ver Todos</a>
           </nav>
+        ) : (
+          <a href="#" className="view-all">
+            Ver todos
+          </a>
         )}
       </div>
 
