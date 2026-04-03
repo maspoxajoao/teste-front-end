@@ -1,4 +1,4 @@
-import { FormEvent } from "react";
+import type { FormEvent } from "react";
 import "./styles.scss";
 
 import shieldIcon from "../../assets/icons/ShieldCheck.svg";
