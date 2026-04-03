@@ -1,7 +1,12 @@
+@use "../../styles/variables" as *;
+
 .brand-nav-container {
-  width: 1250px;
+  width: 100%;
+  max-width: 1250px;
   margin: 60px auto;
   text-align: center;
+  padding: 0 20px;
+  overflow: hidden;
 
   h2 {
     color: #3442b5;
@@ -12,12 +17,23 @@
 
   .brand-grid {
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    justify-content: space-between;
+    gap: 20px;
     position: relative;
     padding-bottom: 40px;
 
+    @media (max-width: 1250px) {
+      justify-content: flex-start;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
     .brand-circle {
+      flex-shrink: 0;
       width: 211px;
       height: 211px;
       background: #ffffff;
@@ -25,9 +41,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-
       box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.13);
-
       cursor: pointer;
       transition: transform 0.2s ease;
 
@@ -37,13 +51,14 @@
 
       img {
         max-width: 150px;
+        height: auto;
       }
     }
 
     .nav-arrow-right {
       position: absolute;
       right: -25px;
-      top: 40%;
+      top: 35%;
       width: 50px;
       height: 50px;
       background: #ffffff;
@@ -57,6 +72,10 @@
       align-items: center;
       justify-content: center;
       z-index: 2;
+
+      @media (max-width: 1280px) {
+        display: none;
+      }
     }
   }
 }
